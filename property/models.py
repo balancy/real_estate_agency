@@ -60,7 +60,6 @@ class Flat(models.Model):
         default=None,
         verbose_name="Кто лайкнул",
         blank=True,
-        null=True,
     )
 
     def __str__(self):
