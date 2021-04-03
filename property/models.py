@@ -93,8 +93,8 @@ class Complaint(models.Model):
 
 class Owner(models.Model):
     name = models.CharField("ФИО владельца", max_length=200)
-    owners_phonenumber = models.CharField("Номер владельца", max_length=20)
-    owner_standartized_phonenumber = PhoneNumberField(
+    phonenumber = models.CharField("Номер владельца", max_length=20)
+    standartized_phonenumber = PhoneNumberField(
         "Номер телефона (стандартизированный)",
         default='',
         blank=True,
