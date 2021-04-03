@@ -12,6 +12,7 @@ class FlatAdmin(admin.ModelAdmin):
         "new_building",
         "construction_year",
         "town",
+        "owners_phonenumber",
         "owner_standartized_phonenumber",
     )
     list_editable = ("new_building",)
