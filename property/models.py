@@ -13,7 +13,11 @@ class Flat(models.Model):
 
     description = models.TextField("Текст объявления", blank=True)
     price = models.IntegerField("Цена квартиры", db_index=True)
-    new_building = models.NullBooleanField("Новое здание", default=None)
+    new_building = models.NullBooleanField(
+        "Новое здание",
+        default=None,
+        db_index=True,
+    )
 
     town = models.CharField(
         "Город, где находится квартира",
@@ -23,14 +27,14 @@ class Flat(models.Model):
         "Район города, где находится квартира",
         max_length=50,
         blank=True,
-        help_text='Чертаново Южное')
+        help_text="Чертаново Южное")
     address = models.TextField(
         "Адрес квартиры",
-        help_text='ул. Подольских курсантов д.5 кв.4')
+        help_text="ул. Подольских курсантов д.5 кв.4")
     floor = models.CharField(
         "Этаж",
         max_length=3,
-        help_text='Первый этаж, последний этаж, пятый этаж')
+        help_text="Первый этаж, последний этаж, пятый этаж")
 
     rooms_number = models.IntegerField(
         "Количество комнат в квартире",
@@ -87,11 +91,15 @@ class Complaint(models.Model):
 
 
 class Owner(models.Model):
-    name = models.CharField("ФИО владельца", max_length=200)
+    name = models.CharField(
+        "ФИО владельца",
+        max_length=200,
+        db_index=True,
+    )
     phonenumber = models.CharField("Номер владельца", max_length=20)
     standartized_phonenumber = PhoneNumberField(
         "Номер телефона (стандартизированный)",
-        default='',
+        default="",
         blank=True,
         null=True,
     )
